@@ -1,0 +1,54 @@
+                    ┌─────────────────┐
+                    │   Categories    │
+                    │─────────────────│
+                    │ category_id (PK)│
+                    │ category_name   │
+                    └────────┬────────┘
+                             │
+                             │ 1 : Many
+                             ▼
+                    ┌─────────────────┐
+                    │    Products     │
+                    │─────────────────│
+                    │ product_id (PK) │
+                    │ category_id(FK) │
+                    │ product_name    │
+                    │ price           │
+                    │ stock_quantity  │
+                    └────────┬────────┘
+                             │
+                             │
+                             ▼
+                    ┌─────────────────┐
+                    │  Order_Items    │
+                    │─────────────────│
+                    │ order_item_id PK│
+                    │ order_id (FK)   │
+                    │ product_id (FK) │
+                    │ quantity        │
+                    │ unit_price      │
+                    └────────┬────────┘
+                             │
+                             │
+                             ▼
+┌─────────────────┐    ┌─────────────────┐
+│    Customers    │    │     Orders      │
+│─────────────────│    │─────────────────│
+│ customer_id (PK)│───▶│ order_id (PK)   │
+│ first_name      │    │ customer_id(FK) │
+│ last_name       │    │ order_date      │
+│ email           │    │ order_status    │
+│ city            │    │ total_amount    │
+└────────┬────────┘    └────────┬────────┘
+         │                      │
+         │                      │
+         ▼                      ▼
+┌─────────────────┐    ┌─────────────────┐
+│     Reviews     │    │    Payments     │
+│─────────────────│    │─────────────────│
+│ review_id (PK)  │    │ payment_id (PK) │
+│ customer_id(FK) │    │ order_id (FK)   │
+│ product_id (FK) │    │ payment_method  │
+│ rating          │    │ payment_status  │
+│ review_text     │    │ payment_date    │
+└─────────────────┘    └─────────────────┘
